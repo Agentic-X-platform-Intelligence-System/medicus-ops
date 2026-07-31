@@ -1,0 +1,15 @@
+---
+description: MUI mobile-first UI conventions
+globs: app/**/*.tsx,components/**/*.tsx
+alwaysApply: false
+---
+
+# UI (MUI)
+
+- Mobile-first: design for 375px viewport, then scale up (bottom nav mobile, sidebar desktop).
+- Server Components by default; `"use client"` only for interactivity.
+- Use MUI theme tokens — avoid one-off magic spacing/colors.
+- Component files: PascalCase under `app/` or `components/`.
+- Accessibility: labels on inputs, keyboard reachability, sufficient contrast.
+- No patient PII in browser console.
+- Keep screens focused — one primary action per view in Phase 1.

@@ -1,0 +1,14 @@
+---
+description: Oracle SQL migrations — forward-only, snake_case
+globs: sql/**/*.sql,db/**/*.sql
+alwaysApply: false
+---
+
+# Data & Migrations
+
+- Tables: `snake_case` plural (e.g. `tasks`, `appointments`, `notifications`).
+- Files: numbered forward-only SQL under `sql/` (e.g. `V001__create_tasks.sql`).
+- Every schema change = new file — never edit a migration already applied.
+- Parameterize app queries via `executeQuery` binds — not string concatenation.
+- PHI-adjacent columns: comment in SQL for future encryption review.
+- Appointment/notification rows: include `created_at`; notifications include `channel`, `status`, `sent_at`.

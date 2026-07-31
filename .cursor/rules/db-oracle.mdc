@@ -1,0 +1,13 @@
+---
+description: Oracle Thin-mode pool and query rules
+globs: ["lib/db.ts", "app/api/**/*.ts"]
+alwaysApply: false
+---
+
+# Oracle DB
+
+- **Thin mode only** — no Instant Client, no `initOracleClient` / Thick init.
+- **One shared pool** in `lib/db.ts` — never `createPool` or direct `getConnection` outside that module.
+- **Bind variables** for all parameters — never string-concatenate SQL.
+- **Release in try/finally** — every acquired connection must `close()` (returns to pool).
+- **Small pool** (free-tier / serverless): `poolMin: 0`, `poolMax: 4`, `poolIncrement: 1`, `poolTimeout: 60`. Env: `DB_USER`, `DB_PASSWORD`, `DB_CONNECT_STRING` only — no env-specific code branches.

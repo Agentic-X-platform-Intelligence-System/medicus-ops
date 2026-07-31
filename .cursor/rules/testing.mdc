@@ -1,0 +1,15 @@
+---
+description: Testing — mock externals, no live DB in unit tests
+globs: **/*.test.ts,**/*.test.tsx,**/*.spec.ts,**/*.spec.tsx
+alwaysApply: false
+---
+
+# Testing
+
+- Pyramid: many unit > fewer integration > sparse e2e.
+- Frontend: Jest + React Testing Library (when added).
+- Test names describe behavior: `should_returnX_when_Y`.
+- Mock Oracle (`executeQuery`), email, and social channel sends in unit tests — no live DB or provider calls.
+- No snapshot tests for dynamic clinical/scheduling data.
+- Server Actions: test validation and error paths with mocked `lib/db`.
+- Integration tests that hit real Oracle: separate, explicit, not in default CI unit run.

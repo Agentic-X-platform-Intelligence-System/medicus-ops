@@ -1,0 +1,14 @@
+---
+description: Outbound notification channels (email now, social later)
+globs: lib/notifications/**,app/api/cron/**
+alwaysApply: false
+---
+
+# Notifications (channel-agnostic)
+
+- All outbound sends go through `NotificationChannel` in `lib/notifications/` — never call email/SMS/social providers from routes or components.
+- Phase 1: **EmailChannel** only (real implementation).
+- Phase 3+: **SocialMediaChannel** adapters (WhatsApp, SMS, etc.) — add implementations behind the same interface.
+- Stubs must fail clearly (`NotImplementedError` / logged no-op) — no fake success.
+- Cron routes (`/api/cron/*`) may call channels; UI and Server Actions call a shared service, not providers directly.
+- Store channel type in DB as enum/string (`email`, `social_*`) — not vendor-specific table columns.

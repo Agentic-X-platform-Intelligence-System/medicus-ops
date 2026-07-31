@@ -1,0 +1,13 @@
+---
+description: Conventional Commits and branch naming
+alwaysApply: false
+---
+
+# Git & Commits
+
+- Conventional Commits: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`.
+- Branches: `feature/p{n}-{short-desc}` (e.g. `feature/p1-auth-login`).
+- One logical change per commit.
+- Optional: `Phase: 1` in commit body for traceability.
+- Never commit `.env*`, `node_modules/`, `.next/`.
+- Security-relevant changes (auth, secrets, channel credentials): note in commit body.

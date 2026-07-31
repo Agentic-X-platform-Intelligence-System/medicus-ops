@@ -1,0 +1,22 @@
+---
+description: Secrets, env vars, and PHI-aware logging
+globs: **/.env*,**/*.yml,**/next.config.ts
+alwaysApply: false
+---
+
+# Security & Config
+
+- Never hardcode API keys, DB passwords, or channel credentials — use env vars only.
+- Local: `.env.local` (gitignored). Production: hosting env / secret store — same code, different vars.
+- Known env vars (extend as features land):
+
+| Variable | Used by |
+|----------|---------|
+| `DB_USER` | Oracle pool |
+| `DB_PASSWORD` | Oracle pool |
+| `DB_CONNECT_STRING` | Oracle pool |
+| `AUTH_SECRET` | NextAuth (Day 2+) |
+| `EMAIL_*` / `RESEND_API_KEY` | EmailChannel (Day 6+) |
+
+- No patient PII (name, phone, email, notes) in logs or `console.log`.
+- No secrets in client bundles — only `NEXT_PUBLIC_*` for non-sensitive public config.
