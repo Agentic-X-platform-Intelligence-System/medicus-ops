@@ -15,3 +15,4 @@ Internal task/schedule/appointment tracker for a solo physician (Phase 1). Later
 - **DB:** All access via `executeQuery` / `checkHealth` from `lib/db.ts`. Never import/instantiate `oracledb` elsewhere.
 - **Notifications:** Only through `NotificationChannel` (email now; social-media adapters later). Never call providers from a route or component.
 - **Scope:** No unrequested Phase 2/3 features. Prefer small, colocated components under `app/`.
+- **Git:** Branch `feature` → PR → merge `main` → deploy `main` (see `git-and-commits.mdc`).

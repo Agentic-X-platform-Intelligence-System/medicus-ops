@@ -15,6 +15,21 @@ function requireEnv(name: string): string {
   return value;
 }
 
+/** Drop cached pool so the next call rebuilds with current env (e.g. after ORA-01017). */
+async function resetPool(): Promise<void> {
+  const pending = poolPromise;
+  poolPromise = null;
+  if (!pending) {
+    return;
+  }
+  try {
+    const pool = await pending;
+    await pool.close(0);
+  } catch {
+    // Pool may never have opened; safe to discard.
+  }
+}
+
 async function getPool(): Promise<oracledb.Pool> {
   if (!poolPromise) {
     poolPromise = oracledb.createPool({
@@ -58,7 +73,10 @@ export async function checkHealth(): Promise<boolean> {
   try {
     const rows = await executeQuery<{ OK: number }>("SELECT 1 AS OK FROM DUAL");
     return rows.length > 0;
-  } catch {
+  } catch (err) {
+    console.error("[checkHealth] DB probe failed:", err);
+    // Auth / config mistakes leave a poisoned pool; clear so a fixed .env.local can recover.
+    await resetPool();
     return false;
   }
 }

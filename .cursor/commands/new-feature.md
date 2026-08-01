@@ -2,6 +2,10 @@
 
 Scaffold a Phase 1 feature: Server Action + types + minimal MUI screen.
 
+## Branch first
+
+Work on branch `feature` — not on `main`. Ship via PR → merge `main` → deploy `main` (see `.cursor/rules/git-and-commits.mdc`). Create/switch branch only after the user confirms.
+
 ## Before coding — ask
 
 1. Entity name (e.g. Task, Appointment)

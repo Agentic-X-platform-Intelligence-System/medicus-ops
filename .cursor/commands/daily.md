@@ -11,6 +11,8 @@ Medicus Ops morning kickoff — one-screen overview, then stop unless asked to s
 
 Ignore `node_modules/`, `.next/`.
 
+Delivery reminder in glance when relevant: work on `feature` → PR → merge `main` → deploy `main`.
+
 ## Output format
 
 ```markdown

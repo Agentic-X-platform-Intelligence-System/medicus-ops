@@ -13,6 +13,15 @@ Phase 1: solo-physician internal ops (tasks, schedule, appointments). Later: pub
 
 Do not restate rule bodies here — follow scoped rules.
 
+## Delivery flow
+
+**`feature` → review → PR → merge `main` → deploy `main`**
+
+- Implement on branch `feature` (not on `main`).
+- `/pr-review` before opening a PR; merge only after review.
+- Deploy / production from `main` only.
+- Details: `.cursor/rules/git-and-commits.mdc`
+
 ## Quick pointers
 
 | Concern | Where |
@@ -22,5 +31,6 @@ Do not restate rule bodies here — follow scoped rules.
 | Sprint glance | `docs/sprints/STATUS.md` |
 | Blueprint / schema | `idea/doctor-app-blueprint.md` |
 | Local Oracle setup | `terminal-cmds/setup.md` |
+| Git / PR / deploy | `.cursor/rules/git-and-commits.mdc` |
 
 Next.js APIs may differ from training data — check `node_modules/next/dist/docs/` when unsure.

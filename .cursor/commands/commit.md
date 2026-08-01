@@ -12,4 +12,4 @@ Draft and create a Conventional Commit from the staged diff.
 6. Commit only after confirmation (no `--no-verify`, no amend unless asked).
 7. Never commit `.env*`, `node_modules/`, `.next/`.
 
-Branch naming: `feature/p{n}-{short-desc}` (see `.cursor/rules/git-and-commits.mdc`).
+Branch: commit on `feature`, not `main`. Flow: `feature` → `/pr-review` → PR → merge `main` → deploy `main` (see `.cursor/rules/git-and-commits.mdc`).

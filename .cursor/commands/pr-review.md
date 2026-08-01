@@ -1,6 +1,8 @@
 # /pr-review
 
-Self-review before opening a PR. Diff against `main`/`master`.
+Self-review before opening a PR into `main`. Diff against `main`.
+
+Delivery: `feature` → this review → PR → merge `main` → deploy `main` only.
 
 ## Checklist
 
@@ -18,4 +20,4 @@ Flag pass / fail / N/A with file refs:
 10. **Mobile-first** — UI changes sane at 375px
 11. **Server Actions** — mutations prefer Server Actions; Route Handlers only for cron/external API
 
-Summarize blockers vs nits. Do not open PR unless asked.
+Summarize blockers vs nits. Do not open PR unless asked. After merge, deploy from `main` only (`/deploy-check` first).
