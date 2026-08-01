@@ -1,8 +1,9 @@
 import { siteContent } from "@/lib/public/site-content";
+import { getSiteUrl } from "@/lib/public/site-url";
 
 export function buildPhysicianJsonLd(): Record<string, unknown> {
   const { doctor, contact, seo } = siteContent;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const siteUrl = getSiteUrl();
 
   return {
     "@context": "https://schema.org",
@@ -12,7 +13,7 @@ export function buildPhysicianJsonLd(): Record<string, unknown> {
     description: seo.defaultDescription,
     image: `${siteUrl}${doctor.imagePath}`,
     telephone: contact.phone,
-    email: contact.email,
+    ...(contact.email ? { email: contact.email } : {}),
     url: siteUrl,
     address: {
       "@type": "PostalAddress",
@@ -45,7 +46,7 @@ export function buildPhysicianJsonLd(): Record<string, unknown> {
 
 export function buildMedicalBusinessJsonLd(): Record<string, unknown> {
   const { contact, doctor } = siteContent;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const siteUrl = getSiteUrl();
 
   return {
     "@context": "https://schema.org",

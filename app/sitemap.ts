@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 import { siteContent } from "@/lib/public/site-content";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { getSiteUrl } from "@/lib/public/site-url";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUrl = getSiteUrl();
   const lastModified = new Date();
   const staticPaths = ["", "/credentials", "/procedures", "/contact"] as const;
 

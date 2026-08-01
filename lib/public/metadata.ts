@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { siteContent } from "@/lib/public/site-content";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { getSiteUrl } from "@/lib/public/site-url";
 
 export function buildPublicMetadata(options: {
   title?: string;
   description?: string;
   path?: string;
 }): Metadata {
+  const siteUrl = getSiteUrl();
   const title = options.title
     ? `${options.title} | ${siteContent.seo.siteName}`
     : siteContent.seo.siteName;

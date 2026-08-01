@@ -84,3 +84,5 @@ Optional in `.env.local`:
 DEFAULT_DOCTOR_USER_ID=1
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
+
+On Vercel (Production + Preview), set `NEXT_PUBLIC_SITE_URL` to the public HTTPS origin (e.g. `https://medicus-ops.vercel.app`) so canonical, Open Graph, sitemap, and robots URLs are correct when shared.

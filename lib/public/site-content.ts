@@ -57,7 +57,7 @@ export const siteContent = {
     phone: "+919960912675",
     /** WhatsApp number without + (wa.me format) */
     whatsapp: "919960912675",
-    email: "appointments@example.com",
+    email: "",
     address: {
       street: "Nashik Road",
       city: "Nashik",
@@ -74,41 +74,33 @@ export const siteContent = {
       name: "Magnum Multispecialty Hospital",
       role: "Consultant Urologist",
     },
-    {
-      name: "UPDATE: Secondary clinic / hospital",
-      role: "Visiting Consultant",
-    },
   ],
-  memberships: [
-    "Urological Society of India (USI)",
-    "UPDATE: Regional / subspecialty society",
-    "UPDATE: Fellowship body or college",
-  ],
+  memberships: ["Urological Society of India (USI)"],
   credentialRail: [
     {
       year: "2012",
       title: "MBBS",
-      detail: "UPDATE: Medical college — undergraduate medicine",
+      detail: "Undergraduate medical degree",
     },
     {
       year: "2016",
       title: "MS (General Surgery)",
-      detail: "UPDATE: Postgraduate surgical training",
+      detail: "Postgraduate surgical training",
     },
     {
       year: "2019",
       title: "MCh (Urology)",
-      detail: "UPDATE: Superspecialty urology residency",
+      detail: "Superspecialty urology",
     },
     {
       year: "2020",
       title: "Fellowship — Laparoscopic Urology",
-      detail: "UPDATE: Advanced minimally invasive training",
+      detail: "Advanced minimally invasive training",
     },
     {
       year: "2021",
       title: "Consultant appointment",
-      detail: "UPDATE: Current hospital / practice affiliation",
+      detail: "Consultant Urologist — Magnum Multispecialty Hospital",
     },
   ] satisfies CredentialStop[],
   procedures: [

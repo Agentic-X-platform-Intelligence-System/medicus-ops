@@ -1,33 +1,35 @@
 # Medicus Ops — Status
 
-**Phase / sprint:** Phase 2 · Public portfolio (initial build complete) → D2 Auth next  
-**Last updated:** 2026-08-01
+**Phase / sprint:** Phase 2 · Public portfolio (demo-ready patch) → D2 Auth next  
+**Last updated:** 2026-08-02
 
 ## At a glance
 
 - Phase 2 public site live at `/` — hero, Credential Rail, procedures, conditions, contact, appointment request
+- Demo patch: production site URL helper, stub trim, real doctor photo at `/images/doctor.png`
 - Phase 1 D1 complete (`/api/health` smoke pass); D2 Auth still pending for internal dashboard
 - Branch: `main` after PR #2 merge
 
 ## Done recently
 
-- Public route group `app/(public)/` with Fraunces + IBM Plex, ink/gold palette, full-bleed hero
-- SEO: `generateMetadata`, JSON-LD Physician, SSG/ISR (1d revalidate)
-- Routes: `/`, `/credentials`, `/procedures`, `/procedures/[slug]`, `/conditions/[slug]`, `/contact`
-- Appointment request Server Action → Oracle `appointments` (`status: requested`)
-- SQL migration `001_phase2_public.sql` (users + appointments)
-- D1: `lib/db.ts`, `/api/health`, pool reset on failed probes
+- `getSiteUrl()` — `NEXT_PUBLIC_SITE_URL` → `VERCEL_URL` → localhost fallback for metadata, robots, sitemap, JSON-LD
+- Trimmed public stubs: Magnum-only affiliation, USI-only membership, neutral credential rail copy (no fake college names)
+- Contact email hidden until a real address is confirmed
+- SQL seed phone aligned with site (`+919960912675`)
+- Real hero photo wired at `public/images/doctor.png`
 
 ## Next up (recommended)
 
-- Replace `UPDATE:` placeholders in `lib/public/site-content.ts` with brother's confirmed facts
+- Set `NEXT_PUBLIC_SITE_URL=https://medicus-ops.vercel.app` on Vercel (Production + Preview) and redeploy
+- Brother to confirm: exact medical colleges, secondary clinic, professional email
 - Phase 1 D2 Auth + internal dashboard shell
-- Deploy public site from `main`
+- Custom domain + Search Console when ready for SEO
 
 ## Blockers / open decisions
 
-- WhatsApp / phone `9960912675`, address Nashik Road 422101, Magnum affiliation set; email + secondary clinic still stubs
-- Google ranking: needs live custom domain + Search Console (hospital/directory listings currently dominate)
+- Vercel env `NEXT_PUBLIC_SITE_URL` must be set before sharing link (canonical / OG previews)
+- Pending from brother: college names, secondary clinic, clinic email
+- Google ranking: needs custom domain + Search Console (hospital/directory listings currently dominate)
 - Auth provider env vars for Day 2 internal app
 - Email: Resend vs Nodemailer + Gmail SMTP
 - Oracle prod: wallet TLS vs TLS-only ACL

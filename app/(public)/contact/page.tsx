@@ -49,7 +49,9 @@ export default function ContactPage() {
                 Open chat
               </a>
             </p>
-            <p className={styles.contactLine}>Email: {contact.email}</p>
+            {contact.email ? (
+              <p className={styles.contactLine}>Email: {contact.email}</p>
+            ) : null}
             <p className={styles.inlineCta}>
               <Link href="/#request-appointment">Request appointment online</Link>
             </p>

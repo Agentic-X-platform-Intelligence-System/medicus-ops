@@ -8,6 +8,7 @@ Pre-deploy checklist. Run checks; do not deploy unless asked.
 
 1. **Env vars present** (names only — never print values):
    - `DB_USER`, `DB_PASSWORD`, `DB_CONNECT_STRING`
+   - `NEXT_PUBLIC_SITE_URL` (production HTTPS origin, e.g. `https://medicus-ops.vercel.app`)
    - `AUTH_SECRET` (when auth shipped)
    - Email / channel vars (when notifications shipped)
 2. **Oracle reachable**: local `docker ps --filter name=oracle` or ADB ACL/wallet configured

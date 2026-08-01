@@ -53,7 +53,7 @@ BEGIN
       'Dr. Abhinav Gade',
       'doctor@medicus-ops.local',
       'Urology',
-      '+919876543210'
+      '+919960912675'
     );
   END IF;
 END;
