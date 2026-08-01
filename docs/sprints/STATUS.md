@@ -26,7 +26,8 @@
 
 ## Blockers / open decisions
 
-- Real clinic address, phone, WhatsApp, hospital names (stub content in `site-content.ts`)
+- WhatsApp / phone `9960912675`, address Nashik Road 422101, Magnum affiliation set; email + secondary clinic still stubs
+- Google ranking: needs live custom domain + Search Console (hospital/directory listings currently dominate)
 - Auth provider env vars for Day 2 internal app
 - Email: Resend vs Nodemailer + Gmail SMTP
 - Oracle prod: wallet TLS vs TLS-only ACL

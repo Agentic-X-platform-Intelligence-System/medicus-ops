@@ -47,31 +47,31 @@ export const siteContent = {
       "Dr. Abhinav Gade, Consultant Urologist in professional attire with stethoscope",
   },
   seo: {
-    siteName: "Dr. Abhinav Gade — Urologist",
+    siteName: "Dr. Abhinav Gade — Urologist in Nashik",
     defaultDescription:
-      "Consultant urologist specialising in laparoscopic and robotic surgery, kidney stones, and prostate health. Book an appointment or learn about conditions and procedures.",
+      "Dr. Abhinav Gade, consultant urologist in Nashik (Nashik Road) — laparoscopic and robotic surgery, kidney stones, and prostate health. Book an appointment or enquire on WhatsApp.",
     locale: "en_IN",
   },
   contact: {
-    /** UPDATE: real phone (E.164 for tel: links) */
-    phone: "+919876543210",
-    /** UPDATE: WhatsApp number without + (wa.me format) */
-    whatsapp: "919876543210",
+    /** E.164 for tel: links — same line as WhatsApp unless clinic landline is confirmed */
+    phone: "+919960912675",
+    /** WhatsApp number without + (wa.me format) */
+    whatsapp: "919960912675",
     email: "appointments@example.com",
     address: {
-      street: "UPDATE: Clinic / hospital address line 1",
-      city: "UPDATE: City",
-      region: "UPDATE: State",
-      postalCode: "000000",
+      street: "Nashik Road",
+      city: "Nashik",
+      region: "Maharashtra",
+      postalCode: "422101",
       country: "IN",
     },
     hours: "Mon–Sat · 9:00 AM – 6:00 PM",
     mapEmbedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0!2d77.0!3d28.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDAwJzAwLjAiTiA3N8KwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1",
+      "https://maps.google.com/maps?q=Nashik+Road,+Nashik,+Maharashtra+422101&output=embed",
   },
   affiliations: [
     {
-      name: "UPDATE: Primary hospital affiliation",
+      name: "Magnum Multispecialty Hospital",
       role: "Consultant Urologist",
     },
     {
