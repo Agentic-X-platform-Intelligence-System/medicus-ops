@@ -1,12 +1,28 @@
 ---
-description: Conventional Commits and branch naming
-alwaysApply: false
+description: Branching, PR flow, Conventional Commits
+alwaysApply: true
 ---
 
-# Git & Commits
+# Git, branches & deploy
+
+## Delivery flow (default)
+
+1. **Work on `feature`** — never implement sprint work directly on `main`.
+2. **Commit** on `feature` (Conventional Commits).
+3. **Review** — `/pr-review` (and human review) before opening a PR.
+4. **PR → merge into `main`** — only after review; no force-push to `main`.
+5. **Deploy from `main`** — production / Vercel deploys track `main` only, never `feature`.
+
+Ask before creating/switching branches, opening PRs, merging, or deploying.
+
+## Branch
+
+- Use a single working branch named `feature` (reuse / reset as needed after merge).
+- No phase prefixes or descriptive suffixes required.
+
+## Commits
 
 - Conventional Commits: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`.
-- Branches: `feature/p{n}-{short-desc}` (e.g. `feature/p1-auth-login`).
 - One logical change per commit.
 - Optional: `Phase: 1` in commit body for traceability.
 - Never commit `.env*`, `node_modules/`, `.next/`.

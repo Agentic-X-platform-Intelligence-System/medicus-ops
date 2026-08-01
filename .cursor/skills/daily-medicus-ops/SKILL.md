@@ -23,6 +23,8 @@ Work only inside the `medicus-ops/` repo root.
 
 Ignore `node_modules/`, `.next/`.
 
+Delivery reminder when relevant: `feature` → PR → merge `main` → deploy `main`.
+
 Canonical command twin: `.cursor/commands/daily.md`
 
 ## Workflow

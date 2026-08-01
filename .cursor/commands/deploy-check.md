@@ -2,6 +2,8 @@
 
 Pre-deploy checklist. Run checks; do not deploy unless asked.
 
+**Deploy target:** `main` only (after PR merge). Never deploy `feature` to production.
+
 ## Checklist
 
 1. **Env vars present** (names only — never print values):

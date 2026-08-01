@@ -1,28 +1,31 @@
 # Medicus Ops — Status
 
-**Phase / sprint:** Phase 1 · Day 1–7 internal ops  
-**Last updated:** (run `/daily` to refresh)
+**Phase / sprint:** Phase 1 · D1 Foundation complete → D2 Auth next  
+**Last updated:** 2026-08-01
 
 ## At a glance
 
-- Phase 1 scaffold — DB layer + Cursor specialist pack complete
-- Branch / dirty: check git
+- D1 Foundation done — smoke verified: `GET /api/health` → `{ ok: true }`
+- Next: D2 Auth + shell layout
+- Branch: `feature` (work here → PR → merge `main` → deploy `main`)
 
 ## Done recently
 
-- Next.js + MUI scaffold
-- `lib/db.ts` Thin-mode pool + `/api/health`
-- Cursor specialist pack: rules, commands, skill, sprint docs
+- `42d8886` Initial scaffold + blueprint
+- Next.js + MUI, `lib/db.ts`, `/api/health`, Cursor specialist pack
+- Local Oracle `oracle-medicus-ops` healthy on `1521`
+- Smoke pass: `/api/health` returns `{ ok: true }`
+- `lib/db.ts`: reset pool after failed health probes (avoids poisoned pool after bad creds)
 
 ## Next up (recommended)
 
-- **D1 — Smoke test** — verify `/api/health` with Oracle running
-- Outcome: `{ ok: true }` end-to-end
+- **D2 — Auth + shell layout** — NextAuth credentials, login page, mobile/desktop nav
 
 ## Blockers / open decisions
 
-- Oracle local container must be running for health check
-- Auth provider env vars (Day 2)
+- Auth provider env vars for Day 2
+- Email: Resend vs Nodemailer + Gmail SMTP
+- Oracle prod: wallet TLS vs TLS-only ACL
 
 ## Out of scope today
 

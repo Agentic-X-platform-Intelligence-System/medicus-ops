@@ -13,7 +13,7 @@ Internal-only ops tool. Dependency order — do not skip ahead.
 - [x] `lib/db.ts` Thin pool + `executeQuery` + `checkHealth`
 - [x] `GET /api/health` → `{ ok }`
 - [x] Cursor specialist pack (rules, commands, skill, sprint docs)
-- [ ] Smoke: `/api/health` returns `{ ok: true }` with DB up
+- [x] Smoke: `/api/health` returns `{ ok: true }` with DB up
 
 ## D2 — Auth + shell layout
 

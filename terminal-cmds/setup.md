@@ -7,13 +7,13 @@
 ```powershell
 docker pull container-registry.oracle.com/database/free:latest
 
-docker run -d --name oracle-local -p 1521:1521 -e ORACLE_PWD=MySecretPassword@2026! container-registry.oracle.com/database/free:latest
+docker run -d --name oracle-medicus-ops -p 1521:1521 -e ORACLE_PWD=MedicusOps123 container-registry.oracle.com/database/free:latest
 ```
 
 Takes a few minutes to initialize on first run — check with:
 
 ```powershell
-docker logs -f oracle-local
+docker logs -f oracle-medicus-ops
 ```
 
 Wait until logs show the database is ready (often `DATABASE IS READY TO USE`). Ctrl+C exits the log follow; the container keeps running.
@@ -21,12 +21,12 @@ Wait until logs show the database is ready (often `DATABASE IS READY TO USE`). C
 Useful checks:
 
 ```powershell
-docker ps --filter "name=oracle-local"
-docker stop oracle-local
-docker start oracle-local
+docker ps --filter "name=oracle-medicus-ops"
+docker stop oracle-medicus-ops
+docker start oracle-medicus-ops
 
-# docker rename oracle-local oracle-medicus-ops
-# docker exec -it oracle-medicus-ops sqlplus system/MySecretPassword@2026!@FREEPDB1
+# docker rename oracle-medicus-ops oracle-medicus-ops
+# docker exec -it oracle-medicus-ops sqlplus system/MedicusOps123@FREEPDB1
 
 ```
 
@@ -62,8 +62,10 @@ Put in `.env.local` (never commit):
 
 ```
 DB_USER=system
-DB_PASSWORD=MySecretPassword@2026!
+DB_PASSWORD=MedicusOps123
 DB_CONNECT_STRING=localhost:1521/FREEPDB1
 ```
 
 Service name for Oracle Free is typically `FREEPDB1`. Confirm with container docs/logs if connection fails.
+
+`ORACLE_PWD` is applied only on first container/DB create. `.env.local` `DB_PASSWORD` must match that value — changing `-e ORACLE_PWD=...` later does not update an existing volume.
