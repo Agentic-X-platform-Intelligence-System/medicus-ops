@@ -69,3 +69,18 @@ DB_CONNECT_STRING=localhost:1521/FREEPDB1
 Service name for Oracle Free is typically `FREEPDB1`. Confirm with container docs/logs if connection fails.
 
 `ORACLE_PWD` is applied only on first container/DB create. `.env.local` `DB_PASSWORD` must match that value — changing `-e ORACLE_PWD=...` later does not update an existing volume.
+
+### Phase 2 — public portfolio DB migration
+
+After Oracle is up, apply appointments schema (from repo root):
+
+```powershell
+Get-Content sql/migrations/001_phase2_public.sql | docker exec -i oracle-medicus-ops bash -c "sqlplus -s system/`${ORACLE_PWD}@FREEPDB1"
+```
+
+Optional in `.env.local`:
+
+```
+DEFAULT_DOCTOR_USER_ID=1
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```

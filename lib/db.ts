@@ -68,6 +68,32 @@ export async function executeQuery<T>(
   }
 }
 
+/** INSERT/UPDATE with RETURNING ... INTO out bind; returns the out bind value. */
+export async function executeReturningId(
+  sql: string,
+  binds: oracledb.BindParameters,
+  outBindName = "outId",
+): Promise<number> {
+  const pool = await getPool();
+  let connection: oracledb.Connection | undefined;
+  try {
+    connection = await pool.getConnection();
+    const result = await connection.execute(sql, binds, {
+      outFormat: oracledb.OUT_FORMAT_OBJECT,
+    });
+    const outBinds = result.outBinds as Record<string, number> | undefined;
+    const id = outBinds?.[outBindName];
+    if (typeof id !== "number") {
+      throw new Error(`Expected numeric out bind "${outBindName}"`);
+    }
+    return id;
+  } finally {
+    if (connection) {
+      await connection.close();
+    }
+  }
+}
+
 /** For /api/health — true if `SELECT 1 FROM DUAL` succeeds. */
 export async function checkHealth(): Promise<boolean> {
   try {

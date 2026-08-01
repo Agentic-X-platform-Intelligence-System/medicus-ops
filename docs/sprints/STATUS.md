@@ -1,33 +1,37 @@
 # Medicus Ops — Status
 
-**Phase / sprint:** Phase 1 · D1 Foundation complete → D2 Auth next  
+**Phase / sprint:** Phase 2 · Public portfolio (initial build complete) → D2 Auth next  
 **Last updated:** 2026-08-01
 
 ## At a glance
 
-- D1 Foundation done — smoke verified: `GET /api/health` → `{ ok: true }`
-- Next: D2 Auth + shell layout
-- Branch: `feature` (work here → PR → merge `main` → deploy `main`)
+- Phase 2 public site live at `/` — hero, Credential Rail, procedures, conditions, contact, appointment request
+- Phase 1 D1 complete (`/api/health` smoke pass); D2 Auth still pending for internal dashboard
+- Branch: `main` after PR #2 merge
 
 ## Done recently
 
-- `42d8886` Initial scaffold + blueprint
-- Next.js + MUI, `lib/db.ts`, `/api/health`, Cursor specialist pack
-- Local Oracle `oracle-medicus-ops` healthy on `1521`
-- Smoke pass: `/api/health` returns `{ ok: true }`
-- `lib/db.ts`: reset pool after failed health probes (avoids poisoned pool after bad creds)
+- Public route group `app/(public)/` with Fraunces + IBM Plex, ink/gold palette, full-bleed hero
+- SEO: `generateMetadata`, JSON-LD Physician, SSG/ISR (1d revalidate)
+- Routes: `/`, `/credentials`, `/procedures`, `/procedures/[slug]`, `/conditions/[slug]`, `/contact`
+- Appointment request Server Action → Oracle `appointments` (`status: requested`)
+- SQL migration `001_phase2_public.sql` (users + appointments)
+- D1: `lib/db.ts`, `/api/health`, pool reset on failed probes
 
 ## Next up (recommended)
 
-- **D2 — Auth + shell layout** — NextAuth credentials, login page, mobile/desktop nav
+- Replace `UPDATE:` placeholders in `lib/public/site-content.ts` with brother's confirmed facts
+- Phase 1 D2 Auth + internal dashboard shell
+- Deploy public site from `main`
 
 ## Blockers / open decisions
 
-- Auth provider env vars for Day 2
+- Real clinic address, phone, WhatsApp, hospital names (stub content in `site-content.ts`)
+- Auth provider env vars for Day 2 internal app
 - Email: Resend vs Nodemailer + Gmail SMTP
 - Oracle prod: wallet TLS vs TLS-only ACL
 
 ## Out of scope today
 
-- Public portfolio / SEO site (Phase 2)
-- Live social-media / messaging channels (Phase 3)
+- Phase 3 WhatsApp Business API automation
+- Internal dashboard features (tasks, calendar) until D2+
